@@ -9,8 +9,8 @@ class Module:
 
     def parameters(self):
         return []
-
-class Neuron:
+    
+class Neuron(Module):
     
     def __init__(self, nin):
         self.w = [Value(random.uniform(-1, 1)) for _ in range(nin)]
@@ -27,7 +27,7 @@ class Neuron:
     def __repr__(self):
         return f"Neuron of {len(self.w)} inputs"
 
-class Layer:
+class Layer(Module):
 
     def __init__(self, nin, nout):
         self.neurons = [Neuron(nin) for _ in range(nout)]
@@ -42,7 +42,7 @@ class Layer:
     def __repr__(self):
         return f"Layer of [{', '.join(str(n) for n in self.neurons)}]"
 
-class MLP:
+class MLP(Module):
     
     def __init__(self, nin, nouts):
         sz = [nin] + nouts

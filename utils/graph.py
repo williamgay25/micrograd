@@ -1,6 +1,6 @@
 from graphviz import Digraph
 
-class PlotGraph:
+class Graph:
 
     def trace(self, root):
         nodes, edges = set(), set()
